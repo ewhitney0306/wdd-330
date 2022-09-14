@@ -18,6 +18,7 @@ function makeHero(event){
 	hero.city = form.city.value;
 	hero.origin = form.origin.value;
 	alert(JSON.stringify(hero));
+	console.log(JSON.stringify(hero));
 	return hero;
 }
 
