@@ -46,7 +46,8 @@ input.addEventListener('blur', function(){
 
 function search(event) {
 	//alert('Form Submitted');
-	alert('You searched for: ${input.value}');
+	var inputValue = input.value;
+	alert('You searched for: ' + inputValue);
 	//Stops the from from submitting the URL
 	event.preventDefault();
 }
