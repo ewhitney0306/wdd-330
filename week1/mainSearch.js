@@ -19,14 +19,15 @@ const form = document.forms['search'];
 //Used to set the action attribute of a form
 //form.action();
 
-//Triggering Events specific to HTML forms
 const input = form.elements.searchInput;
+
+//Triggering Events specific to HTML forms
 //input.addEventListener('focus', () => alert('focused'), false);
 //input.addEventListener('blur', () => alert('blurred'), false);
 //input.addEventListener('change', () => alert('changed'), false);
 
 //Event to submit the form
-form.addEventListener('submit'), search, false);
+form.addEventListener('submit', search, false);
 
 //setting the value of the input element
 input.value = "Search Here";
