@@ -1,4 +1,4 @@
-const form = document.forms['hero'];
+const form = document.forms['heroForm'];
 form.addEventListener('submit', makeHero, false);
 
 function makeHero(event){
