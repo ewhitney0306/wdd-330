@@ -36,7 +36,7 @@ error.classList.add('error');
 error.textContent = '! Your name is not allowed to start with X.';
 label.append(error);
 
-form.addEventListener('submit',validateInline,false);
+form.addEventListener('submit',validate,false);
 
 function validateInline() {
     const heroName = this.value.toUpperCase();
