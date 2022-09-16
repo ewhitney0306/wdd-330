@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Functions</h2>
+    <h3>Default Parameters</h3>
+    <p>
+    function hello(name='World') {</br>
+        console.log(`Hello ${name}!);</br>
+    }</br>
+    hello();</br>
+    << 'Hello World!'</br>
+    hello('Universe');</br>
+    << 'Hello Universe!'</br>
+    //The golden rule to remember here is to always put default parameters after all the other parameters.</br>
+    </p>
+    
+    <h3>Arrow Functions</h3>
+    <p>
+    const square = x => x*x;</br>
+    const add = (x,y) => x + y;</br>
+    const hello = () => alert('Hello World!');</br>
+    const tax = (salary) => {</br>
+        const taxable = salary - 8000;</br>
+        const lowerRate = 0.25 * taxable;</br>
+        taxable = taxable - 20000;</br>
+        const higherRate = 0.4 * taxable;</br>
+        return lowerRate + higherRate;</br>
+    }</br>
+    </p>
+    
+    <h3>Callbacks</h3>
+    <p>
+    //A function that is passed as an argument to another</br>
+    function sing(song, callback) {</br>
+        console.log(`I'm singing along to ${song}`);</br>
+        callback();</br>
+    }</br>
+    function dance() {</br>
+        console.log("I'm moving my body to the groove."); </br>
+    }</br>
+    sing('Let It Go',dance);</br>
+    << 'I'm singing along to Let It Go.'</br>
+    'I'm moving my body to the groove.'</br>
+    </p>
+    
+    <h3>forEach()</h3>
+    <p>
+    colors.forEach( (color,index) =></br>
+        console.log(`Color at position ${index}  is ${color}`) );</br>
+    <<  "Color at position 0 is Red"</br>
+        "Color at position 1 is Green"</br>
+        "Color at position 2 is Blue"</br>
+    </p>
+    
+    <h3>.map()</h3>
+    <p>
+    ['red','green','blue'].map( (color, index, array) => `Element ${index} is ${color}. There are ${array.length} items in total.` );</br>
+    << [ 'Element 0 is red. There are 3 items in total.',</br>
+    'Element 1 is green. There are 3 items in total.',</br>
+    'Element 2 is blue. There are 3 items in total.' ]</br>
+    </p>
+    
+    <h3>Reduce()</h3>
+    <p>
+    // iterates over each value in the array, but this time it cumulatively combines each result to return just a single value. </br>
+    // It usually takes two parameters. The first parameter represents the accumulated value of all the calculations so far, and the second parameter represents the current value in the array.</br>
+    [1,2,3,4,5].reduce( (acc,val) => acc + val,10); // <---- second parameter of 10 here</br>
+    << 25</br>
+    </p>
+    
+    <h3>filter()</h3>
+    <p>
+    //returns a new array that only contains items from the original array that return true when passed to the callback.
+    const numbers = [ 2, 7, 6, 5, 11, 23, 12 ]</br></br>
+    
+    numbers.filter(x => x%2 === 0 ); // this returns true if the number is even</br>
+    
+    << [ 2, 6, 12 ]</br>
+</body>
+</html>
