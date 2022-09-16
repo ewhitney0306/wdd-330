@@ -1,0 +1,159 @@
+<h2>ARRAYS</h2>
+<p>destructing arrays</br>
+const [x,y] = [1,2];</br>
+x=1 y=2</br>
+// can be used to swap values</br>
+[x,y] = [y,x]</br>
+x=2 y=1</br>
+</p>
+
+<h3>Array Properties and Methods</h3>
+<p>
+const avengers = ['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Black Widow'];</br>
+avengers.length;</br>
+<< 6</br>
+
+avengers[avengers.length -1];</br>
+<<'Black Widow'</br>
+//length can be changed</br>
+</p>
+
+<h3>POP, PUSH, SHIFT, UNSHIFT</h3>
+<p>
+// Pop removes the last item in the array</br>
+avengers.pop();</br>
+<<'Black Widow'</br>
+avengers </br>
+<<['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye'];</br>
+
+//Shift removes to first item in the array</br>
+avengers.shift();</br>
+<<'Captain America'</br>
+avengers</br>
+<<[Iron Man', 'Thor', 'Hulk', 'Hawkeye'];</br>
+
+//Push adds a value to the end of the array. </br>
+avengers.push('Captain America');</br>
+avengers</br>
+<<['Iron Man', 'Thor', 'Hulk', 'Hawkeye','Captain America'];</br>
+
+//Unshift adds a value to the beginning of the array</br>
+avengers.unshift('Black Widow');</br>
+avengers</br>
+<<['Black Widow', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye','Captain America'];</br>
+</p>
+
+<h3>Merging Arrays </h3>
+<p>
+//Concat creates a new array that combines one or more arrays</br>
+avengers.concat(['Spiderman', 'Vision', 'Wanda']);</br>
+<<['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Spiderman', 'Vision', 'Wanda']</br>
+
+//To use concat but not create a new array use assignment (=)</br>
+avengers = avengers.concat(['Spiderman', 'Vision', 'Wanda']);</br>
+avengers</br>
+<<['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Spiderman', 'Vision', 'Wanda']</br>
+</p>
+
+<h3>The Join Method</h3>
+<p>
+// turns array into a string that comprises of all the items in the array </br>
+avengers.join();</br>
+<<'Captain America, Iron Man, Thor, Hulk, Hawkeye, Spiderman, Vision, Wanda'</br>
+avengers.join('&');</br>
+<<'Captain America & Iron Man & Thor & Hulk & Hawkeye & Spiderman & Vision & Wanda'</br>
+</p>
+
+<h3>Slicing and Splicing</h3>
+<p>
+avengers.slice(2, 4);</br>
+<<['Thor', 'Hawkeye']</br>
+//This is nondistructive </br>
+avengers; </br>
+<<['Captain America', 'Iron Man', 'Thor', 'Hulk', 'Hawkeye', 'Spiderman', 'Vision', 'Wanda']</br>
+//splice is distructive. It replaces a value with something else</br>
+//First number is the index, the second number is how many to replace, and the third item is what to replace it with.</br>
+avengers.splice(3, 1, 'Dr. Strange');</br>
+avengers; </br>
+<<['Captain America', 'Iron Man', 'Thor', 'Dr. Strange', 'Hawkeye', 'Spiderman', 'Vision', 'Wanda']</br>
+avengers.splice(4, 0, 'Quicksilver');</br>
+avengers;</br>
+<<['Captain America', 'Iron Man', 'Thor', 'Dr. Strange', 'Quicksilver', 'Hawkeye', 'Spiderman', 'Vision', 'Wanda']</br>
+</p>
+
+<h3>Reverse and Sort</h3>
+<p>
+avenger.reverse();</br>
+<<['Wanda', 'Vision', 'Spiderman', 'Hawkeye', 'Quicksilver', 'Dr. Strange', 'Thor', 'Iron Man', 'Captain America']</br>
+//Reverse and Sort change the array permanently</br>
+avenger.sort();</br> 
+<<['Captain America', 'Dr. Strange', 'Hawkeye','Iron Man', 'Quicksilver', 'Spiderman', 'Thor', 'Vision', 'Vision','Wanda']</br>
+
+<h2>Sets</h2>
+<p>
+//Collection of unique values. No duplicates. </br>
+const list = new Set();</br>
+list.add(1)</br>
+list.add(2).add(3).add(4);</br>
+<<Set {1, 2, 3, 4}</br>
+const moreNumbers = new Set(7, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9);</br>
+moreNumbers;</br>
+<< Set{7, 8, 9}</br>
+</p>
+
+<h3>Set Methods</h3>
+<ul>
+<li>.add</li>
+<li>.size</li>
+<li>.has</li>
+<li>.delete</li>
+<li>.clear</li>
+</ul>
+
+<h3>Sets to Arrays</h3>
+<p>
+const shoppingSet = new Set().add('Apples').add('Bananas').add('Beans');</br>
+const shoppingArray = [...shoppingSet];</br>
+shoppingArray;</br>
+<<['Apples', 'Bananas', 'Beans']</br>
+const duplicate = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 9];</br>
+const nonDuplicate = [...new Set(duplicate)];</br>
+<<[3, 1, 4, 5, 9, 2, 6]</br>
+</p>
+
+<h2> Maps </h2>
+<p>
+//List of keeping key and value pairs</br>
+const romanNumerals = new Map();</br>
+romanNumerals.set(1, "I");</br>
+<<Map{1 => 'I'}</br>
+romanNumerals.set(2,'II').set(3,'III').set(4,'IV').set(5,'V');</br>
+<< Map { 1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V' }</br>
+</p>
+
+<h3>Map Methods</h3>
+<ul>
+	<li>.get</li>
+	<li>.has</li>
+	<li>.size</li>
+	<li>.delete</li>
+	<li>.clear</li>
+</ul>
+
+<h3>Map to Array</h3>
+<p>
+//the key value pairs become nested arrays</br>
+[...romanNumerals]</br>
+<< [ [ 1, 'I' ], [ 2, 'II' ], [ 3, 'III' ], [ 4, 'IV' ], [ 5, 'V' ] ]</br>
+</p>
+
+<h2>Logic</h2>
+<h3>Ternary Operator</h3>
+<p>
+//can take the place of if else statements</br>
+const n = 5;</br>
+n%2 === 0 ? console.log('n is an even number') : console.log('n is an odd number');</br>
+<< 'n is an odd number'</br>
+//Or if can be shortened even more </br>
+console.log(`n is a ${(n%2 === 0)? 'even' : 'odd'} number`);</br>
+</p>
