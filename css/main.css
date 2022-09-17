@@ -1,0 +1,41 @@
+:root{
+    --darkBlue: #187E89;
+    --lightBlue: #13A8B1;
+    --orangeCream: #FFC382;
+    --lightOrange: #FF7C35;
+    --darkOrange:#D95E0A;
+}
+
+body{
+    background-color: var(--lightBlue);
+}
+
+.mainBody {
+    margin-top: 100px;
+    width: 75%;
+    height: 100%;
+    margin-left: 12.5%;
+    background-color: var(--orangeCream);
+    border:solid 5px var(--darkBlue);
+    padding: 25px;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: center;
+    background-color: var(--darkOrange);
+}
+
+p, li, a {
+    font-size: 24px;
+}
+
+h1{
+    font-size: 72px;
+}
+
+h2 {
+    font-size: 56px;
+}
+ h3 {
+     font-size: 42px;
+ }

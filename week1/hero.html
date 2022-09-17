@@ -2,6 +2,7 @@
 <html lang='en'>
 <head>
     <meta charset='utf-8'>
+    <link rel="stylesheet" href="../css/main.css"/>
 	<style>
 	    .error{
 	        background: #f99;
@@ -12,6 +13,7 @@
     <title>Hero Form</title>
 </head>
 <body>
+	<main id="mainBody">
     <form id='heroForm'>
         <label for='heroName'>Name:
             <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32 required>
@@ -64,6 +66,7 @@
 	<button type='reset'>Reset</button>
         <button type='submit'>Submit</button>
     </form>
+</main>
 <script src='mainHero.js'></script>
 </body>
 </html>
