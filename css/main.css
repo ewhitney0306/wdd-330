@@ -7,16 +7,38 @@
 }
 
 body{
+    background-color: white;
+}
+
+header {
+    background-color: var(--darkBlue);
+    display: block;
+}
+
+nav {
+    float: right; 
+    margin: 25px;
+    margin-top: 50px;
+}
+
+nav a {
+    border: solid 3px var(--lightOrange);
+    color: var(--orangeCream);
+    text-decoration: none;
+    padding: 12px 14px;
+
+}
+
+nav a:hover {
     background-color: var(--lightBlue);
+    
 }
 
 .mainBody {
-    margin-top: 100px;
-    width: 75%;
+    width: 60%;
     height: 100%;
-    margin-left: 12.5%;
-    background-color: var(--orangeCream);
-    border:solid 5px var(--darkBlue);
+    margin-left: 15%;
+    background-color: white;
     padding: 25px;
 }
 
