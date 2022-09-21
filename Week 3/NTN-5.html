@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTN-5</title>
+</head>
+<body>
+    <main class="mainBody">
+        <h2>Objects</h2>
+        <p>Objects are often used to keep any related information and functionality together in the same place</p>br>
+        allow objects to be created quickly without the need for defining a class.</br>
+        in operator can be used to check whether an object has a particular property</br>
+        Another way is to use the .hasOwnProperty(); method</br>
+        for(const key in superman) {</br>
+            console.log(key + ": " + superman[key]);</br>
+        }</br>
+        << "name: Superman"</br>
+        << "real name: Clark Kent"</br>
+        << "height: 75"</br>
+        << "weight: 235"</br>
+        << "hero: true"</br>
+        << "villain: false"</br>
+        << "allies: Batman,Supergirl,Superboy"</br>
+        << "fly: function (){</br>
+            console.log(\"Up, up and away!\");</br>
+        }"</br>
+        <strong>Object.keys()</strong> method will return an array of all the keys of any object that is provided as an argument</br>
+        for(const key of Object.keys(superman)) {</br>
+            console.log(key);</br>
+        }</br>
+        <<  name</br>
+            real name</br>
+            height</br>
+            weight</br>
+            hero</br>
+            villain</br>
+            allies</br>
+            fly</br>
+        <strong>Object.entries()</strong></br>
+        for(const [key,value] of Object.entries(superman)) {</br>
+            console.log(`${key}: ${value}`);</br>
+        }</br>
+        <<  name: Superman</br>
+            real name: Clark Kent</br>
+            height: 75</br>
+            weight: 235</br>
+            hero: true</br>
+            villain: false</br>
+            allies: [ 'Batman','Supergirl','Superboy' ]</br>
+            fly: [Function: fly]</br>
+            It's important to note that properties don’t always appear in the order they were entered. An object is not an ordered list like an array, set or map, so you should never rely on the properties being in a certain order.</br>
+        </p>
+        <h3>Mathematical Methods</h3>
+        <ul>
+            <li>.abs</li>
+            <li>.ceil</li>
+            <li>.floor</li>
+            <li>.round</li>
+            <li>.trunc</li>
+            <li>.exp</li>
+            <li>.pow</li>
+            <li>.sqrt</li>
+            <li>.cbrt</li>
+            <li>.hypot</li>
+            <li>.log</li>
+            <li>.max</li>
+            <li>.min</li>
+            <li>.sin</li>
+            <li>.cos</li>
+            <li>.tan</li>
+            <li>.asin</li>
+            <li>.acos</li>
+            <li>.atan</li>
+            <li>.sinh</li>
+            <li>.cosh</li>
+            <li>.tanh</li>
+            <li>.random</li>
+        </ul>
+        <h3>Date Getter Methods</h3>
+        <ul>
+            <li>.getDay</li>
+            <li>.getUTCDay</li>
+            <li>.getDate</li>
+            <li>.getUTCDate</li>
+            <li>.getMonth</li>
+            <li>.getUTCMonth</li>
+            <li>.getFullYear</li>
+            <li>.getUTCFullYear</li>
+            <li>.getHours</li>
+            <li>.getUTCHours</li>
+            <li>.getMinutes</li>
+            <li>.getUTCMinutes</li>
+            <li>.getSeconds</li>
+            <li>.getUTCSeconds</li>
+            <li>.getMilliseconds</li>
+            <li>.getUTCMilliseconds</li>
+            <li>.getTime</li>
+            <li>.getTimeZoneOffset</li>
+        </ul>
+        <h3>Date Setter Methods</h3>
+        <ul>
+            <li>setDate</li>
+            <li>setMonth</li>
+            <li>setFullYear</li>
+            <li>setHours</li>
+            <li>setUTCHours</li>
+            <li>setMinutes</li>
+            <li>setUTCMinutes</li>
+            <li>setSeconds</li>
+            <li>setUTCSeconds</li>
+            <li>setMilliseconds</li>
+            <li>setUTCMilliseconds</li>
+            <li>setTime</li>
+        </ul>
+        
+    </main>
+</body>
+</html>
