@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <title>JS DOM Exercises</title>
+    </head> 
+    <body>
+        <h2>Exercise 1</h2>
+        <p id ='text'>JavaScript Exercises - w3resource</p> 
+        <div>
+            <button id="jsstyle" onclick="js_style()">Style</button>
+        </div>
+
+        <h2>Exercise 2</h2>
+        <form id="form1" onsubmit="getFormvalue()">
+            First Name: <input type="text" name="fname" value="David"/>
+            Last Name: <input type="text" name="lname" value="Beckham"/>
+            <input type="submit" value="Submit"/>
+        </form>
+
+        <h2>Exercise 3</h2>
+        <p><a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://www.w3resource.com/">w3resource</a></p>
+<button onclick="getAttributes()">Click here to get  attributes value</button>
+
+        <h2>Exercise 4</h2>
+        <table id="sampleTable" border="1">
+            <tr><td>Row1 cell1</td>
+            <td>Row1 cell2</td></tr>
+            <tr><td>Row2 cell1</td>
+            <td>Row2 cell2</td></tr>
+        </table><br>
+        <input type="button" onclick="insert_Row()" value="Insert row">
+
+        <h2>Exercise 5</h2>
+        <table id="myTable" border="1">
+            <tr><td>Row1 cell1</td>
+            <td>Row1 cell2</td></tr>
+            <tr><td>Row2 cell1</td>
+            <td>Row2 cell2</td></tr>
+            <tr><td>Row3 cell1</td>
+            <td>Row3 cell2</td></tr>
+        </table>
+        <form>
+            <input type="button" onclick="changeContent()" value="Change content">
+        </form>
+
+        <h2>Exercise 6</h2>
+        <table id="myTable2" border="1">
+        </table>
+        <form id="creatTableForm">
+            <input type="button" onclick="createTable()" value="Create the table">
+        </form>
+
+        <h2>Exercise 7</h2>
+        <form>
+            <select id="colorSelect">
+            <option>Red</option>
+            <option>Green</option>
+            <option>White</option>
+            <option>Black</option>
+            </select>
+            <input type="button" onclick="removecolor()" value="Select and Remove">
+        </form>
+
+        <h2>Exercise 8</h2>
+        <form>
+            Select your favorite Color :
+            <select id="mySelect">
+                <option>Red</option>
+                <option>Green</option>
+                <option>Blue</option>
+                <option>White</option>
+            </select>
+            <input type="button" onclick="getOptions()" value="Count and Output all items">
+        </form>
+    </body>
+    <script>
+        function js_style(){
+            var paragraphStyle = document.getElementsByTagName('p')[0].style;
+            paragraphStyle.fontFamily = "Impact, Charcoal, sans-serif"; 
+            paragraphStyle.color = "red";
+            paragraphStyle.backgroundColor = "yellow";
+            paragraphStyle.fontSize = "32px";
+        }
+
+        //My solution
+        function getFormvalue() {
+            var firstName = document.getElementsByName("fname")[0].value;
+            var lastName = document.getElementsByName("lname")[0].value;
+            console.log(firstName + " " + lastName);
+            const outputDiv = document.createElement("div");
+            const outputContent = document.createTextNode(firstName + " " + lastName);
+            outputDiv.appendChild(outputContent);
+            const currentForm = document.getElementById("form1");
+            document.body.insertBefore(outputDiv, currentForm);
+        }
+
+        //Website Solution
+        // function getFormvalue(){
+        //     var x = document.getElementById("form1");
+        //     for(var i=0; i<x.length;i++){
+        //         if(x.elements[i].value != 'Submit'){
+        //             console.log(x.elements[i].value);
+        //         }
+        //     };
+        // }
+
+        function getAttributes() {
+            var href = document.getElementById("w3r").href;
+            alert("The value of the HREF attribute of the link is: " + href);
+            var hrefLang = document.getElementById("w3r").hreflang;
+            alert("The value of the HREFLang attribute of the link is: " + hrefLang);
+            var rel = document.getElementById("w3r").rel;
+            alert("The value of the REL attribute of the link is: " + rel);
+            var target = document.getElementById("w3r").target;
+            alert("The value of the TARGET attribute of the link is: " + target);
+            var type = document.getElementById("w3r").type;
+            alert("The value of the TYPE attribute of the link is: " + type);
+        }
+
+        function insert_Row() {
+            var table = document.getElementById("sampleTable");
+            var row = table.insertRow(0);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            cell1.innerHTML = "New Cell1";
+            cell2.innerHTML = "New Cell2";
+        }
+
+        function changeContent(){
+            var rowNumber = window.prompt("Input the Row Number(0,1,2)", "0");
+            var columnNumber = window.prompt("Input the Column Number(0,1,2", "0");
+            var content = window.prompt("Input the Cell Content");
+            var change = document.getElementById("myTable").rows[parseInt(rowNumber, 10)].cells;
+            change[parseInt(columnNumber, 10)].innerHTML = content;
+        }
+
+        function createTable(){
+            // var table = document.createElement("TABLE");
+            // table.setAttribute("id", "myTable");
+            // document.body.insertBefore(table, document.getElementById("creatTableForm"));
+
+            var table = document.getElementById("myTable2");
+            var rowNumber = window.prompt("Input how many rows the table should have", "0");
+            var columnNumber = window.prompt("Input how many columns the table should have", "0");
+
+            for(var r = 0; r < parseInt(rowNumber,10); r++){
+                var row = table.insertRow(r);
+                for(var c = 0; c< parseInt(columnNumber,10); c++){
+                    var cell = row.insertCell(c);
+                    cell.innerHTML = "Row-" + r + "Column-" + c;
+                }                
+            }
+        }
+
+        var removecolor = () =>{
+            var color = document.getElementById("colorSelect");
+            color.remove(color.selectedIndex);
+        }
+
+        var getOptions = function() {
+            var selection = document.getElementById("mySelect");
+            var txt1 = "No. of Items: ";
+            var i;
+            var length = selection.length;
+            txt1 += length;
+            for (var i=0; i < length; i++){
+                txt1 += "\n" + selection.options[i].text;
+            }
+            alert(txt1);
+        }
+    </script>
+</html>
