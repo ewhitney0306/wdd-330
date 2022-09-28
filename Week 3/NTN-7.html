@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NTN-7</title>
+</head>
+<body>
+    <h2>Events</h2>
+    <p>
+        The screenX and screenY properties show the number of pixels from the left and top of the screen respectively where the event took place.</br>
+        The clientX and clientY properties show the number of pixels from the left and top of the client that is being used (usually the browser window).</br>
+        The pageX and pageY properties show the number of pixels from the left and top, respectively, where the event took place in the document. This property takes account of whether the page has been scrolled.</br>
+    </p>
+    <h3>Types of Events</h3>
+    <h4>Mouse Events</h4>
+    <ul>
+        <li>click</li>
+        <li>mousedown</li>
+        <li>mouseup</li>
+        <li>dblclick</li>
+        <li>mouseover</li>
+        <li>mouseout</li>
+        <li>mousemove</li>
+    </ul>
+    <h4>Keyboard Events</h4>
+    <ul>
+        <li>keydown</li>
+        <li>keypress</li>
+        <li>keyup</li>
+    </ul>
+    <p>Pressing the modifier keys such as Shift, Ctrl, Alt and meta (Cmd on Mac) will fire the keydown and keyup events, but not the keypress event as they don't produce any characters on the screen.</p>
+    <h4>Touch Events</h4>
+    <ul>
+        <li>touchstart</li>
+        <li>touchend</li>
+        <li>touchmove</li>
+        <li>touchenter</li>
+        <li>touchleave</li>
+        <li>touchcancel</li>
+    </ul>    
+    <h3>Propagation</h3>
+    <p>Event propagation is the order that the events fire on each element. There are two forms of event propagation: bubbling and capturing.</p>
+    <p>Bubbling is when the event fires on the element clicked on first, then bubbles up the document tree, firing an event on each parent element until it reaches the root node.</p>
+    <p>Capturing starts by firing an event on the root element, then propagates downwards, firing an event on each child element until it reaches the target element that was clicked on</p>
+    
+</body>
+</html>

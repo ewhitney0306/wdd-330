@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTN-6</title>
+</head>
+<body>
+    <h2>The DOM</h2>
+    <h3>Node Types</h3>
+    <p>
+        <strong>1</strong> element</br>
+        <strong>2</strong> attribute </br>
+        <strong>3</strong> text </br>
+        <strong>8</strong> comment</br>
+        <strong>9</strong> body </br></br>
+
+        .getElementById()</br>
+        .getElementsByTagName()</br>
+        .getElementsByClassName()</br>
+        .querySelector() -use CSS notation find the first element in the document that matches that matches a CSS selector provided as an argument</br>
+        .querySelectorAll() - uses CSS notation  returns a node list of all the elements in the document that match the CSS query selector</br>
+        The getAttribute() method returns the value of the attribute provided as an argument</br>
+        The setAttribute can change the value of an element’s attributes</br>
+        className property that allows the class of an element to be set directly</br>
+        classList property is a list of all the classes an element has</br>
+        add method can be used to add a class to an element without overwriting any classes that already exist</br>
+        remove method will remove a specific class from an element</br>
+        The toggle method is a particularly useful method that will add a class if an element doesn’t have it already, 
+        and remove the class if it does have it. It returns true if the class was added and false if it was removed. </br>
+        contains method will check to see if an element has a particular class</br>
+        createElement() method that takes a tag name as a parameter and returns that element</br>
+        A text node can be created using the document.createTextNode() method. It takes a parameter, which is a string containing the text that goes in the node</br>
+    </p>
+    <h3>Appending Nodes</h3>
+    <ol>
+        <li>Create the element node</li>
+        <li>Create the text node</li>
+        <li>Append the text node to the element node</li>
+    </ol>
+    <p>
+        function createElement (tag,text) {</br>
+            const el = document.createElement(tag);</br>
+            el.textContent = text;</br>
+            return el</br>
+        }</br>
+        const aquaman = createElement('li','Aquaman');</br></br>
+        insertBefore() method will place a new element before another element in the markup</br>
+        An element can be removed from a page using the removeChild() method.</br>
+        replaceChild() method can be used to replace one node with another.</br>
+        The power of the innerHTML property becomes even more apparent if you want to insert a large amount of HTML into the document</br>
+        getComputedStyle() that will retrieve all the style information of an element that is given as a parameter
+    </p>
+</body>
+</html>
