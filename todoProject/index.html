@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo2.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form>
+            <table>
+                <th><h1>Todos</h1></th>
+                <tr>
+                    <td class="item">
+                        <input type="checkbox"/>Item 1 
+                        <button type="button" class="deleteBtn" >X</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="item">
+                        <input type="checkbox" />Item 2
+                        <button type="button" class="deleteBtn">X</button>
+                    </td>
+                </tr>
+                <tr >
+                    <td id="flexContainer">
+                        <p id="itemCount">Item Count</p>
+                        <button type="button" class="filterBtn" id="showAllBtn">All.</button>
+                        <button type="button"  class="filterBtn" id="activeBtn">Active.</button>
+                        <button type="button" class="filterBtn" id="completedBtn">Completed.</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <footer>
+            <form id="footerForm">
+                <input type="text" id="newItemInput" />
+                <button type="button" id="addNewItemBtn">+</button>
+            </form>
+        </footer>    
+    </main>
+</body>
+</html>
