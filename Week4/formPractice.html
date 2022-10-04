@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./formPractice.css"/>
     <title>Document</title>
 </head>
 <body>
-    <form> 
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="fName" />
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lName" />
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" />
-        <label for="favColor">Favorite Color:</label>
-        <select id="favColor" size="5">
+    <form id="form1"> 
+        <label for="firstName" class="label">First Name:</label>
+        <input type="text" id="firstName" name="fName" class="inputs"/>
+        <label for="lastName" class="label">Last Name:</label>
+        <input type="text" id="lastName" name="lName" class="inputs"/>
+        <label for="age" class="label">Age:</label>
+        <input type="number" id="age" name="age" class="inputs"/>
+        <label for="favColor" class="label">Favorite Color:</label>
+        <select id="favColor" size="5" class="inputs">
             <option value="Red">Red</option>
             <option value="Blue">Blue</option>
             <option value="Yellow">Yellow</option>
@@ -24,8 +25,10 @@
             <option value="Pink">Pink</option>
             <option value="Black">Black</option>
         </select>
-        <button type="button" onclick="onSubmitClick()">Submit</button>
+        <button type="button" onclick="onSubmitClick()" class="inputs">Submit</button>
+        <button type="button" onclick="showArray()" class="inputs">Show</button>
     </form>
+    <div id="inputDisplay"></div>
     <script src="./formPractice.js"></script>
 </body>
 </html>

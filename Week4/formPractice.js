@@ -8,17 +8,41 @@ class Person {
 
     birthYear(){
         let year = new Date().getFullYear();
-        return parseInt(year - age);
+        return parseInt(year - this.age);
     }
 }
 
-let userInput = new Person();
+let personArray = new Array();
 
 function onSubmitClick(){
-    userInput.fName = document.getElementById("firstName").value;
-    userInput.lName = document.getElementById("lastName").value;
-    userInput.age = document.getElementById("age").value;
-    userInput.favColor = document.getElementById("favColor").value; 
+    let fname = document.getElementById("firstName");
+    let lname = document.getElementById("lastName");
+    let age = document.getElementById("age");
+    let favColor = document.getElementById("favColor");
+    let userInput = new Person();
+    userInput.fName = fname.value;
+    userInput.lName = lname.value;
+    userInput.age = age.value;
+    userInput.favColor =  favColor.value;
+
+    personArray.push(userInput);
+    
+    fname.value = "";
+    lname.value = '';
+    age.value =  '';
 }
 
-console.log(userInput);
+function showArray(){
+    const node = document.createElement("ul");
+
+    const firstNames = personArray.map((people)=> {
+        const liNode = document.createElement('li'); 
+        const textNode = document.createTextNode(people.fName + " " + people.birthYear());
+        liNode.appendChild(textNode)
+        node.appendChild(liNode);
+    });
+
+
+    document.getElementById("inputDisplay").appendChild(node);
+    
+}
