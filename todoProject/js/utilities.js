@@ -1,13 +1,23 @@
-//let listArray = new Array();
+import Todos from "./Todos.js"
 
-//function onAddItem()
+let listArray = new Array();
+//document.getElementById("addNewItemBtn").addEventListener("click", onAddItem());
+
+function onAddItem(){
     //set id (Timestamp)
+    let id = Date.now();
     //call value of input for contents
+    let content = document.getElementById("newItemInput").value;
     //set completed to false
+    let completed = false;
     //create new todo item 
+    let newItem = new Todos(id, content, completed);
     //push new item to listArray
+    listArray.push(newItem);
+    console.log(newItem);
     //create new table element to display new item.
     // listArray to local storage
+}
 
 //function onDeleteItem()
     //call the item to be deleted
