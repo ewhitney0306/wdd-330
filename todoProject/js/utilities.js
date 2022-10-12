@@ -1,9 +1,10 @@
-import Todos from "./Todos.js"
+import Todos from "./Todos.js";
+import {loadList, saveList} from "./ls.js";
 
 let listArray = new Array();
-//document.getElementById("addNewItemBtn").addEventListener("click", onAddItem());
 
 function onAddItem(){
+    listArray = loadList();
     //set id (Timestamp)
     let id = Date.now();
     //call value of input for contents
@@ -14,17 +15,23 @@ function onAddItem(){
     let newItem = new Todos(id, content, completed);
     //push new item to listArray
     listArray.push(newItem);
-    console.log(newItem);
-    //create new table element to display new item.
     // listArray to local storage
+    saveList(listArray);
 }
 
+document.getElementById("addNewItemBtn").addEventListener("click", onAddItem);
+
 //function onDeleteItem()
+function onDeleteItem(e){
     //call the item to be deleted
+    let target = e.target;
     //find the item in the array
+    
     //delete item from array
     //remove table element from display area
     //save listArray to local storage
+}
+
 
 //function showCompleted()
     //pull array from local storage
