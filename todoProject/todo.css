@@ -8,7 +8,6 @@ main {
 
 table {
     border-collapse: collapse;
-    width: 25%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -24,6 +23,7 @@ td {
 
 .item {
     height: 50px;
+    width: 50%;
     font-size: 24px;
 }
 
@@ -81,4 +81,8 @@ input[type='checkbox']:checked , .checked{
     height: 50px;
     width: 50px;
     padding: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
 }
