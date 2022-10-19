@@ -55,6 +55,8 @@ function onDeleteItem(e){
     saveList(todoListArray);
 }
 
+
+
 //function showCompleted()
 function showCompleted(){
     //pull array from local storage
@@ -64,8 +66,9 @@ function showCompleted(){
     //adjust display to only display the completed tasks
     populateTable(filteredArray);
 }
-    
 
+document.getElementById("completedBtn").addEventListener("click", showCompleted);
+    
 //function showActive()
 function showActive(){
     //pull array from local storage
@@ -76,11 +79,14 @@ function showActive(){
     populateTable(filteredList);
 }
 
+document.getElementById("activeBtn").addEventListener("click", showActive);
+
 function showAll(){
     let todoList = loadList();
     populateTable(todoList);
 }
-    
+
+document.getElementById("showAllBtn").addEventListener("click", showAll);
 
 function populateTable(todoList){
     let itemCountText = "Item Count " + todoList.length;
@@ -96,11 +102,14 @@ function populateTable(todoList){
         let row = table.insertRow(1);
         let cell = row.insertCell(0);
         if(todo.completed == false){
-            cell.innerHTML = '<input type="checkbox" onclick="onComplete(event)"/><label>' + todo.content + '</label><button type="button" class="deleteBtn" onclick="onDeleteItem(event)">X</button>';
+            cell.innerHTML = '<input class="check" type="checkbox" /><label>' + todo.content + '</label><button type="button" class="deleteBtn">X</button>';
+            document.querySelectorAll(".check").forEach(item => {item.addEventListener("click", onComplete)});
         } else {
-            cell.innerHTML = '<input type="checkbox" checked readonly/><label class="completed">' + todo.content + '</label><button type="button" class="deleteBtn" onclick="onDeleteItem(event)">X</button>';
+            cell.innerHTML = '<input class="check" type="checkbox" checked readonly/><label class="completed">' + todo.content + '</label><button type="button" class="deleteBtn" >X</button>';
         }
     });
+    document.querySelectorAll(".deleteBtn").forEach(item => {item.addEventListener("click", onDeleteItem)});
+    
 }
 
 function onComplete(e){
@@ -117,4 +126,3 @@ function onComplete(e){
     saveList(todoList);
 }
 
-export {onDeleteItem};
