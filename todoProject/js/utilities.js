@@ -1,7 +1,7 @@
 import Todos from "./Todos.js";
-import {loadList, saveList, displayList} from "./ls.js";
+import {loadList, saveList} from "./ls.js";
 
-displayList();
+populateTable(loadList());
 
 function onAddItem(){
     let todoListArray = loadList();
@@ -19,6 +19,7 @@ function onAddItem(){
         todoListArray.push(newItem);
         // listArray to local storage
         saveList(todoListArray);
+        populateTable(todoListArray);
     } else {
         //set id (Timestamp)
         let id = Date.now();
@@ -32,8 +33,8 @@ function onAddItem(){
         todoListArray.push(newItem);
         // listArray to local storage
         saveList(todoListArray);
+        populateTable(todoListArray);
     }
-    displayList();
 }
 
 document.getElementById("addNewItemBtn").addEventListener("click", onAddItem);
@@ -45,26 +46,75 @@ function onDeleteItem(e){
     let todoItem = target. previousSibling.innerText;
     //find the item in the array
     let todoListArray = loadList();
-    let arr = todoListArray.findIndex(arr => arr.includes(todoItem));
-    console.log(arr);
+    let index = todoListArray.findIndex(item => item.content.includes(todoItem));
     //delete item from array
+    todoListArray.splice(index, 1);
     //remove table element from display area
+    populateTable(todoListArray);
     //save listArray to local storage
+    saveList(todoListArray);
 }
 
-let delBtn = document.querySelectorAll(".deleteBtn");
-
-delBtn.forEach(function(btn){
-    btn.addEventListener("click", onDeleteItem);
-});
-
 //function showCompleted()
+function showCompleted(){
     //pull array from local storage
+    let todoArray = loadList();
     //filter array to pull only the completed 
+    let filteredArray = todoArray.filter(item => item.completed == true);
     //adjust display to only display the completed tasks
+    populateTable(filteredArray);
+}
+    
 
 //function showActive()
+function showActive(){
     //pull array from local storage
+    let todoArray = loadList();
     //filter listArray to pull only the active tasks
+    let filteredList = todoArray.filter(item => item.completed == false);
     //adjust display to only display the completed tasks
+    populateTable(filteredList);
+}
 
+function showAll(){
+    let todoList = loadList();
+    populateTable(todoList);
+}
+    
+
+function populateTable(todoList){
+    let itemCountText = "Item Count " + todoList.length;
+    document.getElementById('itemCount').innerText = itemCountText;
+
+    let table = document.getElementById("todoTable");
+
+    while(table.rows.length >2){
+        table.deleteRow(1);
+    }
+
+    let createList = todoList.map(todo => {
+        let row = table.insertRow(1);
+        let cell = row.insertCell(0);
+        if(todo.completed == false){
+            cell.innerHTML = '<input type="checkbox" onclick="onComplete(event)"/><label>' + todo.content + '</label><button type="button" class="deleteBtn" onclick="onDeleteItem(event)">X</button>';
+        } else {
+            cell.innerHTML = '<input type="checkbox" checked readonly/><label class="completed">' + todo.content + '</label><button type="button" class="deleteBtn" onclick="onDeleteItem(event)">X</button>';
+        }
+    });
+}
+
+function onComplete(e){
+    let todoList = loadList();
+    let target = e.target;
+    let sibling = target.nextSibling;
+    let siblingText = sibling.innerText;
+
+    sibling.classList.add("completed");
+
+    let index = todoList.findIndex(item => item.content.includes(siblingText));
+    todoList[index].completed = true;
+
+    saveList(todoList);
+}
+
+export {onDeleteItem};
