@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules"></a>
+    <h1>Javascript Modules</h1>
+    <h2>Background</h2>
+    <p>dependent on import and export statements</p>
+    <h2>Basic structure</h2>
+    <ul>
+        <li>index.html</li>
+        <li>main.js</li>
+        <li>modules<ul>
+            <li>canvas.js</li>
+            <li>square.js</li>
+        </ul></li>
+    </ul>
+    <h2>Export</h2>
+        <ul>
+            <li>functions</li>
+            <li>var</li>
+            <li>let</li>
+            <li>const</li>
+            <li>classes</li>
+        </ul>
+        <p>Can't export inside a function</p>
+        <p>Use single export statement at the end </p>
+        <p>IE. export{name, draw, reportArea, reportPerimeter}</p>
+    <h2>Import</h2>
+        <p>import {name, draw, reportArea, reportPerimeter} from './modules/square.js';</p>
+    <h2>Applying to html</h2>
+        <p>script type='module' src='main.js'</p>
+    <h3>NOTE</h3>
+    <p>you can only use import and export inside modules</p>
+    <h2>Module Rules</h2>
+    <ul>
+        <li>User strict mode automatically</li>
+        <li>are deferred automatically</li>
+        <li>only execute once</li>
+    </ul>
+</body>
+</html>

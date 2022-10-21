@@ -5,3 +5,5 @@ class Todos {
         this.completed = completed;
     }
 }
+
+export default Todos;

@@ -8,21 +8,8 @@
 </head>
 <body>
     <main>
-        <form>
-            <table>
+            <table id="todoTable">
                 <th><h1>Todos</h1></th>
-                <tr>
-                    <td class="item">
-                        <input type="checkbox"/>Item 1 
-                        <button type="button" class="deleteBtn" >X</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="item">
-                        <input type="checkbox" />Item 2
-                        <button type="button" class="deleteBtn">X</button>
-                    </td>
-                </tr>
                 <tr >
                     <td id="filterContainer">
                         <p id="itemCount">Item Count</p>
@@ -32,7 +19,6 @@
                     </td>
                 </tr>
             </table>
-        </form>
         <footer>
             <form id="footerForm">
                 <input type="text" id="newItemInput" />
@@ -40,5 +26,6 @@
             </form>
         </footer>    
     </main>
+    <script type="module" src="./js/utilities.js"></script>
 </body>
 </html>
