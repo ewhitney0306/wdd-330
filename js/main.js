@@ -19,11 +19,6 @@ const links = [
     label: "Week 5 notes",
     url: "week5/index.html"
   },
-  
-  {
-    label: "TodoProject",
-    url: "todoProject/index.html"
-  },
 ]
 
 function loadIndex() {
