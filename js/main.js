@@ -31,6 +31,10 @@ const links = [
     label: "Week 9 Notes",
     url: "Week9/index.html"
   },
+    {
+    label: "Week 10 Notes",
+    url: "Week10/index.html"
+  },
 ]
 
 function loadIndex() {
