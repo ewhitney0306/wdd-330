@@ -72,7 +72,14 @@ function createDataTable(requests){
                 data: tableData.code
             },
             {
-                data: tableData.capital
+                data: tableData.capital,
+                render: function(data, type, rowIdx){
+                    if(data == undefined){
+                        return "n/a";
+                    } else {
+                        return data;
+                    }
+                }
             },
             {
                 data: tableData.latLong

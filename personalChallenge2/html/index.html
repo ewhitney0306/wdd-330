@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+    <script type="module" src="../js/index.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">      
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Pocket Atlas</h1>
+        <nav class="navBar">
+            <a>Home</a>
+            <a>Map</a>
+            <a>Favorites</a>
+        </nav>
+    </header>
+
+<h1 id="tableTitle">Table of Countries</h1>
+
+<table id="myTable" class="row-border hover">
+    <thead>
+        <tr>
+            <th>Favorite</th>
+            <th>Name</td>
+            <th>Code</th>
+            <th>Capital</th>
+            <th>Lat/Long</th>
+            <th>Population</th>
+        </tr>  
+    </thead>
+    <tbody>
+    </tbody>
+
+</table>
+
+<div class="footer">
+    <p>Data From: <a href="https://restcountries.com/" target="_blank">RestCountries.com</a></p>
+</div>
+
+</body>
+</html>
