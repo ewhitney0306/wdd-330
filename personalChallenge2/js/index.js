@@ -1,7 +1,6 @@
-import {Country} from '/personalChallenge2/js/countryClass.js';
+import {Country, getLocalStorage, setLocalStorage} from '/personalChallenge2/js/countryClass.js';
 
 let countryArray = new Array();
-let favCountryArray = new Array();
 
 $(document).ready( function () {
     getCountries("https://restcountries.com/v3.1/all");    
@@ -10,25 +9,50 @@ $(document).ready( function () {
 
 function onFavCheckBox(){
     let table = $("#myTable").DataTable();
-    let favMarkers = document.querySelectorAll(".favMarker");
-    favMarkers.forEach((element, event) => element.addEventListener('click', function(){  
-        let selectedCountry = table.row(event.currentTarget).data();
-        let newCountry = new Country(selectedCountry[1], selectedCountry[2], selectedCountry[3], selectedCountry[4], selectedCountry[5], selectedCountry[0])
-        if(element.checked == true){
-            newCountry.favMarker = 'true';
-            favCountryArray.push(newCountry);
-            console.log(favCountryArray);
-        } else {
-            newCountry.favMarker = 'false';
-            let code = newCountry.code;
-            let index = favCountryArray.indexOf(item => item.code.includes(code));
-            console.log(index);
+    let favMarkers = table.column(0).nodes();
+    let favCountryArray = getLocalStorage();
+    if(favCountryArray == null){
+        favCountryArray = new Array();
+        for(let i = 0; i < favMarkers.length; i++){
+            favMarkers[i].addEventListener('click', function(){
+                let selectedCountry = table.row($(this).parents('tr')).data();
+                let newCountry = new Country(selectedCountry[1], selectedCountry[2], selectedCountry[3], selectedCountry[4], selectedCountry[5], selectedCountry[0])
+                if(favMarkers[i].firstElementChild.checked){
+                    newCountry.favMarker = 'true';
+                    favCountryArray.push(newCountry);
+                    setLocalStorage(favCountryArray);
+                } else {
+                    newCountry.favMarker = 'false';
+                    let code = newCountry.code;
+                    let index = favCountryArray.findIndex((item) => item.code.includes(code));
+                    favCountryArray.splice(index, 1);
+                    setLocalStorage(favCountryArray);
+                }
+            })
         }
-    }));    
+    }else {
+        for(let i = 0; i < favMarkers.length; i++){
+            favMarkers[i].addEventListener('click', function(){
+                let selectedCountry = table.row($(this).parents('tr')).data();
+                let newCountry = new Country(selectedCountry[1], selectedCountry[2], selectedCountry[3], selectedCountry[4], selectedCountry[5], selectedCountry[0])
+                if(favMarkers[i].firstElementChild.checked){
+                    newCountry.favMarker = 'true';
+                    favCountryArray.push(newCountry);
+                    setLocalStorage(favCountryArray);
+                } else {
+                    newCountry.favMarker = 'false';
+                    let code = newCountry.code;
+                    let index = favCountryArray.findIndex((item) => item.code.includes(code));
+                    favCountryArray.splice(index, 1);
+                    setLocalStorage(favCountryArray);
+                }
+            });    
+        }
+    }
 }
 
-
 function getCountries(url){
+    let favCountryList = getLocalStorage();
     fetch(url)
     .then((response)=>{if(response.ok){
         return response.json();
@@ -36,18 +60,29 @@ function getCountries(url){
         throw Error(response.statusText);
     })
     .then((data) => {
-        let count = 0; 
+        if(favCountryList == null){
+            data.forEach(element => {
+                let favMarker = 'false';
+                let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population ,favMarker);
+                countryArray.push(newCountry)
+            }); 
+        }else {
+            data.forEach(element => {
+                let favMarker = 'false'
+                let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population ,favMarker);
+                favCountryList.forEach(marker =>{
+                    if(marker.code.includes(newCountry.code)){
+                        newCountry.favMarker = 'true';
+                    }
+                })
+                countryArray.push(newCountry)
+            });
+        }
         
-        data.forEach(element => {
-            let favMarker = 'false';
-            let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population ,favMarker);
-            countryArray.push(newCountry)
-        });
       createDataTable(countryArray)  
     })
     .catch(error => console.log(error));
 }
-
 
 function createDataTable(requests){
 
@@ -62,8 +97,7 @@ function createDataTable(requests){
         columns:[
             {
                 data: tableData.favMarker,
-                render: function(data, type, rowIdx){
-                    
+                render: function(data, type, rowIdx){                    
                         if(data == 'true'){
                             var updatedBox = '<input id="'+ rowIdx[2].data + '" type="checkbox" class="editor-active favMarker" checked/>';
                             return updatedBox
@@ -71,8 +105,7 @@ function createDataTable(requests){
                             return '<input type="checkbox" class="editor-active favMarker">';
                         } else {
                             return '<input type="checkbox" class="editor-active favMarker">';
-                        }
-                    
+                        }                    
                     return data;
                 }
             },

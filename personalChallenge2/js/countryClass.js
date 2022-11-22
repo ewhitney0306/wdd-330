@@ -9,4 +9,12 @@ class Country {
     }
 }
 
-export {Country};
+function getLocalStorage(){
+    return JSON.parse(localStorage.getItem('favCountryList'));
+}
+
+function setLocalStorage(favCountryArray){
+    localStorage.setItem('favCountryList', JSON.stringify(favCountryArray));
+}
+
+export {Country, getLocalStorage, setLocalStorage};
