@@ -7,8 +7,6 @@
     --fontColor: black;
 }
 
-
-
 header {
     display: flex;
     flex-direction: row;
@@ -39,6 +37,12 @@ header h1 {
 }
 
 #tableTitle {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#instructions{
     margin-left: auto;
     margin-right: auto;
     text-align: center;
