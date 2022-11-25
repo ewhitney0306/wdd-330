@@ -1,4 +1,30 @@
+:root{
+    --mainColor: #e5d3a7;
+    --accentColor1: #6eebfd;
+    --accentColor2: #bbdd5d;
+    --fontColor: black;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 #map { 
     height: 800px; 
+    margin: 25px;
+}
+
+#mapReset {
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    z-index: 500;
+}
+
+#mapReset:hover {
+    background-color: var(--mainColor);
 }

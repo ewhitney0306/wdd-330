@@ -62,14 +62,12 @@ function getCountries(url){
     .then((data) => {
         if(favCountryList == null){
             data.forEach(element => {
-                console.log(element.capitalInfo.latlng);
                 let favMarker = 'false';
                 let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population ,favMarker);
                 countryArray.push(newCountry)
             }); 
         }else {
             data.forEach(element => {
-                console.log(element.capitalInfo.latlng);
                 let favMarker = 'false'
                 let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population ,favMarker);
                 favCountryList.forEach(marker =>{
