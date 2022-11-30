@@ -1,10 +1,14 @@
 class Country {
-    constructor(name, code, capital, latLong, population, favMarker){
+    constructor(name, code, capital, latLong, population, language, continent, flag, capLatLong, favMarker){
         this.name = name;
         this.code = code;
         this.capital = capital;
         this.latLong = latLong;
         this.population= population;
+        this.languages = language;
+        this.continents = continent;
+        this.flag = flag;
+        this.capLatLong = capLatLong;
         this.favMarker = favMarker;
     }
 }

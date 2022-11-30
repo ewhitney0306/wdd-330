@@ -1,0 +1,50 @@
+:root{
+  --mainColor: #e5d3a7;
+  --accentColor1: #6eebfd;
+  --accentColor2: #bbdd5d;
+  --fontColor: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+  padding-left: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+li {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h2 {
+  text-align: center;
+  background-color: var(--accentColor2);
+  margin: 25px;
+}
+
+.countryInfo {
+  display: none;
+  flex-direction: row;
+  padding: 25px;
+  height: 500px;
+}
+
+.countryStats {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+.countryFlag {
+  width: 350px;
+  height: 250px;
+}

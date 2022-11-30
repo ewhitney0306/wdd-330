@@ -16,7 +16,8 @@ function onFavCheckBox(){
         for(let i = 0; i < favMarkers.length; i++){
             favMarkers[i].addEventListener('click', function(){
                 let selectedCountry = table.row($(this).parents('tr')).data();
-                let newCountry = new Country(selectedCountry[1], selectedCountry[2], selectedCountry[3], selectedCountry[4], selectedCountry[5], selectedCountry[0])
+                let index = countryArray.findIndex((item) => item.code.includes(selectedCountry[2]));
+                let newCountry = new Country(selectedCountry[1], selectedCountry[2], selectedCountry[3], selectedCountry[4], selectedCountry[5], countryArray[index].languages, countryArray[index].continents, countryArray[index].flag, countryArray[index].capLatLong, selectedCountry[0]);
                 if(favMarkers[i].firstElementChild.checked){
                     newCountry.favMarker = 'true';
                     favCountryArray.push(newCountry);
@@ -34,7 +35,8 @@ function onFavCheckBox(){
         for(let i = 0; i < favMarkers.length; i++){
             favMarkers[i].addEventListener('click', function(){
                 let selectedCountry = table.row($(this).parents('tr')).data();
-                let newCountry = new Country(selectedCountry[1], selectedCountry[2], selectedCountry[3], selectedCountry[4], selectedCountry[5], selectedCountry[0])
+                let index = countryArray.findIndex((item) => item.code.includes(selectedCountry[2]));
+                let newCountry = new Country(selectedCountry[1], selectedCountry[2], selectedCountry[3], selectedCountry[4], selectedCountry[5], countryArray[index].languages, countryArray[index].continents, countryArray[index].flag, countryArray[index].capLatLong, selectedCountry[0]);
                 if(favMarkers[i].firstElementChild.checked){
                     newCountry.favMarker = 'true';
                     favCountryArray.push(newCountry);
@@ -63,13 +65,13 @@ function getCountries(url){
         if(favCountryList == null){
             data.forEach(element => {
                 let favMarker = 'false';
-                let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population ,favMarker);
+                let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population, element.languages, element.continents, element.flags.svg, element.capitalInfo.latlng, favMarker);
                 countryArray.push(newCountry)
             }); 
         }else {
             data.forEach(element => {
                 let favMarker = 'false'
-                let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population ,favMarker);
+                let newCountry = new Country(element.name.common, element.cca2, element.capital, element.latlng, element.population, element.languages, element.continents, element.flags.svg, element.capitalInfo.latlng, favMarker);
                 favCountryList.forEach(marker =>{
                     if(marker.code.includes(newCountry.code)){
                         newCountry.favMarker = 'true';
