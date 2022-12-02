@@ -1,4 +1,4 @@
-import {Country, getLocalStorage, setLocalStorage} from '/personalChallenge2/js/countryClass.js';
+import {Country, getLocalStorage, setLocalStorage} from './countryClass.js';
 
 let countryArray = new Array();
 
