@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 :root{
   --mainColor: #e5d3a7;
   --accentColor1: #6eebfd;
@@ -27,6 +29,8 @@ h2 {
   text-align: center;
   background-color: var(--accentColor2);
   margin: 25px;
+  font-family: lobster, cursive;
+  font-size: 36px;
 }
 
 .countryInfo {
@@ -34,6 +38,7 @@ h2 {
   flex-direction: row;
   padding: 25px;
   height: 500px;
+  font-size: 24px;
 }
 
 .countryStats {
@@ -47,4 +52,13 @@ h2 {
 .countryFlag {
   width: 350px;
   height: 250px;
+  border: 3px solid black;
+}
+
+.countryName:hover{
+  cursor:pointer;
+}
+
+#pageTitle {
+  text-align: center;
 }

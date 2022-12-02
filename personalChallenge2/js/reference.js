@@ -33,7 +33,7 @@ function renderOneCountry(country){
     });
 
 
-     let innerHtml= `<h2 class="collapsible">${country.name}</h2>
+     let innerHtml= `<h2 class="collapsible countryName">${country.name}</h2>
     <div class="countryInfo">
         <div class="countryFlagDiv">
             <img class="countryFlag" src="${country.flag}" alt="Picture of the flag of ${country.name}">
@@ -69,10 +69,8 @@ function renderOneCountry(country){
 
 function showAndHide(){
     let coll= document.getElementsByClassName("collapsible");
-    console.log(coll.length);
 
     for(let i = 0; i < coll.length; i++){
-      console.log(coll[i]);
       coll[i].addEventListener("click", function(){
         this.classList.toggle('active');
         let content = this.nextElementSibling;
